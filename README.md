@@ -98,7 +98,7 @@ gcc -o sha256_example sha256.c main.c
 ---
 
 ## 📚 Documentation
-Une documentation détaillée est disponible dans le fichier [Sha256 Documentation](https://).
+Une documentation détaillée est disponible dans le fichier [Sha256 Documentation](https://github.com/mateis-rgb/sha256/blob/main/docs.md).
 
 
 ## 📜 Licence
