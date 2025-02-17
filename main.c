@@ -1,24 +1,23 @@
-#include "sha256.h"
+#include "sha256.c"
 
 #include <stdio.h>
-#include <string.h>
 
-int main(void){
+int main(void)
+{
     /* Input text. */
-    const char *text = "Hello World!";
+    const char * text = "toto";
+	char * hashedText = hash((char *) text);
+	const char * onlineHash = "31f7a65e315586ac198bd798b6629ce4903d0899476d5741a9f32e2e521b6a66";
+	
+    // /* Print result. */
+    printf("The SHA-256 sum of \"%s\" is:\n", text);
+    printf("%s\n\n", hashedText);
 
-    /* Char array to store the hexadecimal SHA-256 string. */
-    /* Must be 65 characters big (or larger). */
-    /* The last character will be the null-character. */
-    char hex[SHA256_HEX_SIZE];
+    printf("The online SHA-256 sum of \"toto\" is:\n");
+	printf("%s\n\n", onlineHash);
 
-    /* Compute SHA-256 sum. */
-    sha256_hex(text, strlen(text), hex);
-
-    /* Print result. */
-    printf("The SHA-256 sum of \"%s\" is:\n\n", text);
-    printf("%s\n\n", hex);
+	printf("Let's compare the two:\n");
+	printf("Cmp: %d\n", verify(hashedText, (char *) onlineHash));
 
     return 0;
 }
-

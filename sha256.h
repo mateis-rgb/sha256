@@ -30,5 +30,8 @@ void sha256_append(struct sha256 *sha, const void *data, size_t n_bytes);
 void sha256_finalize_hex(struct sha256 *sha, char *dst_hex65);
 void sha256_finalize_bytes(struct sha256 *sha, void *dst_bytes32);
 
+char * hash (char * src);
+unsigned char verify (char * text, char * hash);
+
 #endif
 

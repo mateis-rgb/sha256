@@ -1,6 +1,22 @@
 #include "sha256.h"
 
 
+static size_t len (char * text)
+{
+	unsigned char k = 0;
+
+	for (k = 0; k <= 255; k++)
+	{
+		if (text[k] == '\0')
+		{
+			return k;
+		}
+	}
+
+	return -1;
+}
+
+
 static inline uint32_t rotr(uint32_t x, int n)
 {
     return (x >> n) | (x << (32 - n));
@@ -239,4 +255,40 @@ void sha256_bytes(const void *src, size_t n_bytes, void *dst_bytes32)
     sha256_init(&sha);
     sha256_append(&sha, src, n_bytes);
     sha256_finalize_bytes(&sha, dst_bytes32);
+}
+
+char * hash (char * src)
+{
+    /* Char array to store the hexadecimal SHA-256 string. */
+    /* Must be 65 characters big (or larger). */
+    /* The last character will be the null-character. */
+    static char hex[SHA256_HEX_SIZE];
+
+	/* Compute SHA-256 sum. */
+	sha256_hex(src, len(src), hex);
+
+	return hex;
+}
+
+unsigned char verify (char * text, char * hash)
+{
+	int k = 0;
+
+	int textLen = len(text);
+	int hashLen = len(hash);
+
+	if (textLen != hashLen)
+	{
+		return 0;
+	}
+
+	for (k = 0; k < textLen; k++)
+	{
+		if (text[k] != hash[k])
+		{
+			return 0;
+		}
+	}
+
+	return 1;
 }
