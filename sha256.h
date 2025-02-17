@@ -31,3 +31,4 @@ void sha256_finalize_hex(struct sha256 *sha, char *dst_hex65);
 void sha256_finalize_bytes(struct sha256 *sha, void *dst_bytes32);
 
 #endif
+
