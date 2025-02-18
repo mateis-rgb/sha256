@@ -105,7 +105,7 @@ Une documentation détaillée est disponible dans le fichier [Sha256 Documentati
 Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
 
 ## 👍 Remerciments
-L'implémentation de ce projet est à l'origine de [EddieEldridge](https://github.com/EddieEldridge/SHA256-in-C) et réarrangé par [cinqlair](https://github.com/cinqlair).
+L'implémentation de ce projet est à l'origine de [983](https://github.com/983/SHA-256) et réarrangé par [cinqlair](https://github.com/cinqlair).
 
 ## 🤝 Contribuer
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
