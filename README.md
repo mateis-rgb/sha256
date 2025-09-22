@@ -12,7 +12,8 @@ La fonction `hash()` permet de hacher une chaîne de caractères en une seule li
 #include <stdio.h>
 #include "sha256.h"
 
-int main() {
+int main(void)
+{
     char *message = "Hello, World!";
     char *hashed = hash(message);
     
@@ -37,7 +38,8 @@ Si vous souhaitez plus de contrôle, vous pouvez utiliser directement l'API SHA-
 #include <string.h>
 #include "sha256.h"
 
-int main() {
+int main(void)
+{
     sha256 sha;
     char hash_output[65];  // 64 caractères hexadécimaux + '\0'
     const char *message = "Hello, World!";
@@ -64,13 +66,17 @@ Vous pouvez comparer un message haché avec une autre empreinte SHA-256 :
 #include <stdio.h>
 #include "sha256.h"
 
-int main() {
+int main(void)
+{
     char *message = "password123";
     char *hashed = hash(message);
     
-    if (verify(hashed, hash(message))) {
+    if (verify(hashed, hash(message)))
+    {
         printf("✅ Le hachage correspond.\n");
-    } else {
+    }
+    else
+    {
         printf("❌ Le hachage ne correspond pas.\n");
     }
     
