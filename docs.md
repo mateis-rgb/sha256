@@ -113,12 +113,14 @@ Compare deux chaînes de hachage pour vérifier si elles correspondent.
 #include <stdio.h>
 #include "sha256.h"
 
-int main() {
+int main(void)
+{
     char hash_output[65];
     const char *message = "Hello, World!";
     
     sha256_hex(message, strlen(message), hash_output);
     printf("SHA-256: %s\n", hash_output);
+
     return 0;
 }
 ```
@@ -128,13 +130,17 @@ int main() {
 #include <stdio.h>
 #include "sha256.h"
 
-int main() {
+int main(void)
+{
     char *message = "password123";
     char *hashed = hash(message);
     
-    if (verify(hashed, hash(message))) {
+    if (verify(hashed, hash(message)))
+    {
         printf("Le hachage correspond.\n");
-    } else {
+    }
+    else
+    {
         printf("Le hachage ne correspond pas.\n");
     }
     
